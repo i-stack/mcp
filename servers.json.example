@@ -15,7 +15,7 @@
         "lanhu": {
             "url": "http://localhost:8000/mcp?role=Developer&name=YourName"
         },
-        "API 文档": {
+        "apifox": {
             "command": "npx",
             "args": [
                 "-y",
