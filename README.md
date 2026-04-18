@@ -1,6 +1,11 @@
-# MCP 配置同步
+# mcp-sync
 
-本仓库用**一份** `servers.json` 作为数据源，**同时**同步到 **Cursor**、**Codex** 与 **Claude Code**，避免在多个工具里重复维护 MCP 列表。
+**MCP 配置同步**：用**一份** `servers.json` 作为数据源，**同时**同步到 **Cursor**、**Codex** 与 **Claude Code**，避免在多个工具里重复维护 MCP 列表。
+
+| 项目 | 说明 |
+|------|------|
+| 工程名 | **mcp-sync**（GitHub 仓库名建议与此一致） |
+| 默认远程 | `https://github.com/i-stack/mcp-sync.git`（见下方「克隆」） |
 
 ## 功能概览
 
@@ -17,9 +22,18 @@
 - macOS / Linux（需 `bash`）
 - Python 3（用于 Codex / Claude 同步脚本）
 
+## 克隆仓库
+
+```bash
+git clone https://github.com/i-stack/mcp-sync.git
+cd mcp-sync
+```
+
+若你尚未在 GitHub 上将仓库改名为 `mcp-sync`，请暂时使用：`https://github.com/i-stack/mcp.git`。
+
 ## 快速开始
 
-1. 克隆本仓库并进入目录。
+1. 进入本仓库目录（克隆见上；本地文件夹名可自定）。
 
 2. 准备本地配置（勿提交密钥）：
 

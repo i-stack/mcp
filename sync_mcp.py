@@ -4,7 +4,7 @@ Sync MCP servers from this repo's servers.json to:
 1. $CODEX_HOME/mcp.generated.toml (or ~/.codex/mcp.generated.toml)
 2. Codex user config.toml (merge into a marked block, never overwrite other content)
 
-servers.json lives next to this script (the mcp repo checkout).
+servers.json lives next to this script (the mcp-sync repo checkout).
 
 Config path resolution (first match wins):
 - $CODEX_CONFIG — absolute path to config.toml
