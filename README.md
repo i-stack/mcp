@@ -29,8 +29,6 @@ git clone https://github.com/i-stack/mcp-sync.git
 cd mcp-sync
 ```
 
-若你尚未在 GitHub 上将仓库改名为 `mcp-sync`，请暂时使用：`https://github.com/i-stack/mcp.git`。
-
 ## 快速开始
 
 1. 进入本仓库目录（克隆见上；本地文件夹名可自定）。
