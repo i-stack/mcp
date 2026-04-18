@@ -4,7 +4,7 @@
 
 | 项目 | 说明 |
 |------|------|
-| 工程名 | **mcp-sync**（GitHub 仓库名建议与此一致） |
+| 工程名 | **mcp-sync** |
 | 默认远程 | `https://github.com/i-stack/mcp-sync.git`（见下方「克隆」） |
 
 ## 功能概览
