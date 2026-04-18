@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Merge MCP servers from this repo's servers.json into Claude Code user config.
+Merge MCP servers from this repo's mcp-servers.json into Claude Code user config.
 Updates only mcpServers; does not overwrite other keys in the config.
 Target: ~/.claude.json (user-level MCP for Claude Code).
 """
@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent
-SRC = REPO_ROOT / "servers.json"
+SRC = REPO_ROOT / "mcp-servers.json"
 CLAUDE_JSON = Path.home() / ".claude.json"
 
 
@@ -24,7 +24,7 @@ def main():
         data = {}
 
     existing = data.get("mcpServers") or {}
-    # Merge: same keys from servers.json overwrite; other keys in existing stay
+    # Merge: same keys from mcp-servers.json overwrite; other keys in existing stay
     data["mcpServers"] = {**existing, **servers}
 
     CLAUDE_JSON.parent.mkdir(parents=True, exist_ok=True)
