@@ -41,6 +41,8 @@ cd mcp-sync
 
    编辑 `servers.json`，填入你的 Token、项目 ID 等。
 
+   `mcpServers` 里每一项的**键名**由你自定，会在 Cursor / 客户端里作为该 MCP 的显示名；**建议按功能命名**（见 `servers.json.example`，如 `browser-automation`、`api-documentation`），不必与底层包名一致。
+
 3. 执行同步：
 
    ```bash
