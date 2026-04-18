@@ -1,0 +1,30 @@
+{
+    "mcpServers": {
+        "github": {
+            "command": "npx",
+            "args": ["-y", "@github/github-mcp-server"],
+            "env": {
+                "GITHUB_TOKEN": "YOUR_GITHUB_PAT"
+            }
+        },
+        "playwright": {
+            "command": "npx",
+            "args": ["-y", "@playwright/mcp@latest", "--extension"],
+            "env": {}
+        },
+        "lanhu": {
+            "url": "http://localhost:8000/mcp?role=Developer&name=YourName"
+        },
+        "API 文档": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "apifox-mcp-server@latest",
+                "--project=YOUR_APIFOX_PROJECT_ID"
+            ],
+            "env": {
+                "APIFOX_ACCESS_TOKEN": "YOUR_APIFOX_TOKEN"
+            }
+        }
+    }
+}

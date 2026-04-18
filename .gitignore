@@ -1,0 +1,4 @@
+.DS_Store
+
+# Local secrets — copy from servers.json.example and fill in tokens.
+servers.json
