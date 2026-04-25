@@ -3,6 +3,8 @@
 Sync MCP servers from this repo's mcp-servers.json to:
 1. $CODEX_HOME/mcp.generated.toml (or ~/.codex/mcp.generated.toml)
 2. Codex user config.toml (merge into a marked block, never overwrite other content)
+3. Xcode CodingAssistant Codex dir: ~/Library/Developer/Xcode/CodingAssistant/codex/
+   (same TOML + merge into that config.toml — agents launched inside Xcode only)
 
 mcp-servers.json lives next to this script (the mcp-sync repo checkout).
 
@@ -83,9 +85,13 @@ def generate_toml(servers: dict) -> str:
     return "\n".join(lines).rstrip()
 
 
-def merge_into_codex_config(generated: str) -> None:
+def xcode_codex_dir() -> Path:
+    """Codex config directory used exclusively by Xcode's built-in Coding Assistant."""
+    return Path.home() / "Library/Developer/Xcode/CodingAssistant/codex"
+
+
+def merge_into_codex_config(cfg: Path, generated: str) -> None:
     """Merge generated MCP TOML into config.toml via a marked block. Does not overwrite other content."""
-    cfg = codex_config_path()
     block = f"\n{BEGIN_MARKER}\n{generated}\n{END_MARKER}\n"
     if not cfg.exists():
         cfg.parent.mkdir(parents=True, exist_ok=True)
@@ -117,7 +123,14 @@ def main():
     out.write_text(generated, encoding="utf-8")
     print(f"Wrote: {out}")
 
-    merge_into_codex_config(generated)
+    merge_into_codex_config(codex_config_path(), generated)
+
+    xc = xcode_codex_dir()
+    xc.mkdir(parents=True, exist_ok=True)
+    xc_gen = xc / "mcp.generated.toml"
+    xc_gen.write_text(generated, encoding="utf-8")
+    print(f"Wrote: {xc_gen}")
+    merge_into_codex_config(xc / "config.toml", generated)
 
 
 if __name__ == "__main__":
